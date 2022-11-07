@@ -1,0 +1,73 @@
+/* .example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+mat-form-field.mat-form-field {
+  font-size: 16px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-form {
+  display: flex;
+  flex-direction: column;
+  /* border-radius: 10px; */
+  align-items: center;
+}
+
+.example-form .mat-form-fields {
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+
+}
+.mat-card{
+  width: 400px;
+  height: 400px;
+  /* position: absolute; */
+  /* bottom: 50%; */
+}
+.example-card {
+  max-width: 400px;
+}
+h1{
+font-size: 2.5vw;
+}
+
+.all{
+  position: relative;
+}
+.bg{
+  background-image: url('https://images.alphacoders.com/755/thumb-1920-755830.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+
+/* .example-card{
+  position: absolute;
+  top: 90%;
+} */

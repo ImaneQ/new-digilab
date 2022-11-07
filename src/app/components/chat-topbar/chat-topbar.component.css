@@ -1,0 +1,21 @@
+/* span{
+  display: flex;
+  justify-content: end;
+} */
+img {
+  border-radius: 50%;
+  height: 4vh;
+  margin-right: 0.5em;
+}
+
+mat-toolbar{
+  display: flex;
+  justify-content: space-between;
+  /* width: 100px; */
+}
+span{
+  display: inline-block;
+  margin-right: 0.5em;
+}
+/* icons */
+/* https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/ */

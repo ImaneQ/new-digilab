@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <div *ngIf="datas">
+
+    <img [src]="datas.avatar" alt="picture-avatar">
+    <span>{{datas.firstName}}</span>
+    <span>{{datas.lastName}}</span>
+
+
+  </div>
+  <mat-icon>more_vert</mat-icon>
+</mat-toolbar>

@@ -1,0 +1,38 @@
+<!-- ngsubmit on met l'event ngSubmit validation d'Angular, bien pour performance d'angular -->
+<form class="example-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <!-- on ne met pas de ngmodels dans ce formulaire qd on declare ds formGroup   -->
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Name Form</mat-label>
+    <!-- on met tjs formControlName = directive lorsqu'on fait appel a un formGroup -->
+    <input type="text" aria-label="" matInput formControlName="name">
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Path</mat-label>
+    <input type="text" aria-label="" matInput formControlName="path">
+
+
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <!-- matinput pour l'UI d'Angular Material-->
+    <input type="text" aria-label="" matInput formControlName="description">
+  </mat-form-field>
+  <!-- on ajoute directive ngmodels pour template driven form,
+
+    "numberDate" = attribut on donne un pipe pour transformer attribut  -->
+
+  <!-- {{ numberDate | date:"medium" }} -->
+
+  <!---------------------------------------------------->
+
+     <!-- n'envoie pas le formulaire donc disable n'autorise pas  -->
+      <!-- <button [disabled]="myForm.invalid" mat-icon-button matSuffix> -->
+      <!-- </button> -->
+  <button mat-stroked-button color="accent" type="submit" [disabled]="myForm.invalid">Submit</button>
+
+
+</form>
+
+<button mat-raised-button (click)="Closepopup()">Close</button>

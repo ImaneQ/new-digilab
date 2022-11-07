@@ -1,0 +1,29 @@
+<form class="example-form" [formGroup]="adressForm" (ngSubmit)="onSubmit()">
+  <!-- on ne met pas de ngmodels dans ce formulaire qd on declare ds formGroup   -->
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Street</mat-label>
+    <!-- on met tjs formControlName = directive lorsqu'on fait appel a un formGroup -->
+    <input type="text" aria-label="" matInput formControlName="street">
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>city</mat-label>
+    <input type="text" aria-label="" matInput formControlName="city">
+
+
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>zip</mat-label>
+    <!-- matinput pour l'UI d'Angular Material-->
+    <input type="text" aria-label="" matInput formControlName="zip">
+  </mat-form-field>
+
+
+     <!-- n'envoie pas le formulaire donc disable n'autorise pas  -->
+
+  <button mat-raised-button color="accent" type="submit" [disabled]="adressForm.invalid">Submit</button>
+
+
+</form>
+<!-- <button mat-raised-button (click)="Closepopup()">Close</button> -->

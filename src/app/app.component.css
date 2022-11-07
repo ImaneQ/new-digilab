@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: rgb(46, 112, 255);
+}
+
+.navigation-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-toolbar {
+  border-radius: 3px;
+}
+
+@media(max-width: 995px) {
+  mat-toolbar {
+    border-radius: 0px;
+  }
+}
+
+mat-sidenav_container {
+  height: calc(205vh - 115vh);
+}
+
+/* https://www.youtube.com/watch?v=IU0SU4lbAwY */
+mat-sidenav {
+  width: 200px;
+  background-color: grey;
+}
+
+
+/******************************/
+
+mat-toolbar {
+  background: cornflowerblue;
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: darkblue;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: lightgray;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+
+.menu-button mat-icon{
+
+  margin-right: 8px;
+}
+img{
+  border-radius: 50%;
+  height: 25%;
+}
+
+.name{
+  margin: 0;
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.designation{
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgray;
+}
+
+mat-divider{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}

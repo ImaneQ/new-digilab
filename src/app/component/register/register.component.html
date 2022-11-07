@@ -1,0 +1,143 @@
+<!-- MatautoComplete pour filtrer un tableau -->
+
+<!--  formGroup = au formgroup déclaré dans le ts, on lie la propriété -->
+
+
+<form class="example-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <!-- on ne met pas de ngmodels dans ce formulaire qd on declare ds formGroup   -->
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input type="text" matInput formControlName="firstName">
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input type="text" matInput formControlName="lastName">
+
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Pseudo</mat-label>
+    <input type="text" matInput formControlName="username">
+
+
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>e-mail</mat-label>
+    <input type="text" matInput formControlName="email">
+  </mat-form-field>
+
+  <!-- on ajoute directive ngmodels pour template driven form, "numberDate" = attribut on donne un pipe pour transformer attribut  -->
+
+  <!---------------------------------------------------->
+
+  <!---------------------------------------------------->
+
+
+
+  <!-- {{ numberDate | date:"medium" }} -->
+  <!-- <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Pseudo</mat-label>
+      <input type="text" matInput formControlName="pseudo">
+
+    </mat-form-field> -->
+  <!--  ------------------------------------ -->
+  <!-- <mat-form-field class="example-chip-list" appearance="fill">
+
+
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let skill of skillsArray.controls; index as idx">
+          {{ skill }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input [formControlname]="skillsArray" />
+      </mat-chip-list>
+    </mat-form-field> -->
+
+  <!-- Correction methodo cours -->
+  <!--
+    <ng-container formArrayName="skills">
+
+      <div *ngFor="let item of items"></div>
+    </ng-container> -->
+  <!-- tuto yt FormArray -->
+  <!-- <div class="container">
+      <ng-container formArrayName="skillsArray">
+        <div *ngFor="let skills of skillsArray.controls; index as idx" class="input-row">
+
+          <mat-form-field>
+            <input matInput [formControlName]="idx">
+          </mat-form-field>
+          <button mat-icon-button color="primary" (click)="addInputControl()">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="removeInputControl(idx)" *ngIf="skillsArray.length > 1">
+            <mat-icon>remove_circle</mat-icon>
+          </button>
+        </div>
+
+
+
+      </ng-container>
+      <h2>Skills</h2>
+      <div>{{ skillsArray.valueChanges | async}}</div>
+    </div> -->
+
+  <!-------------------------------------------->
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput type="password" formControlName="password">
+      <button mat-icon-button matSuffix>
+        <mat-icon>remove_red_eye</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm password</mat-label>
+      <!--! si on a pas de formGroup on met (FormGroup) sinon FormControlName -->
+      <input matInput type="password" formControlName="confPassword">
+      <!-- n'envoie pas le formulaire donc disable n'autorise pas  -->
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Street</mat-label>
+    <input type="text" matInput formControlName="street">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>City</mat-label>
+    <input type="text" matInput formControlName="city">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Zipcode</mat-label>
+    <input type="text" matInput formControlName="zipCode">
+  </mat-form-field>
+
+  <!-- Input pays -->
+  <mat-form-field appearance="fill">
+    <mat-label>Country</mat-label>
+    <input type="text" placeholder="Taper votre pays" aria-label="Pays" matInput [matAutocomplete]="auto"
+      formControlName="country" minlength="2">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <!-- le temps que la recuperation se fasse dans l'api ASYNC -->
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-icon matSuffix>language</mat-icon>
+  </mat-form-field>
+
+
+
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Submit</button>
+
+
+</form>

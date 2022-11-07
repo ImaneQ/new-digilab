@@ -1,0 +1,49 @@
+<!-- <a routerLink="register"> -->
+<!-- <button mat-raised-button color="accent" type="submit" (click)="onsubmit()">Submit</button> -->
+<!-- </a> -->
+
+<div class="all">
+  <div class="bg"></div>
+  <mat-card class="example-card">
+    <mat-card-content>
+
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- formGroup on l'appelle come on l'a déclaré ds le TS  -->
+        <h1>Welcome <mat-icon class="mat-18" color="black">smile</mat-icon>
+        </h1>
+        <div class="example-container">
+
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <!--! forcontrolName pour formcontrol, formcontrol avec property binding si c'est tt seul -->
+            <input matInput type="text" formControlName="email">
+
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+
+
+        </div>
+        <mat-card-actions>
+          <button mat-button color="primary">Login</button>
+
+          <!-- <div *ngFor="let userAvatar of userApi">
+          <div>
+            <img matListAvatar [src]="userAvatar.avatar" alt="" srcset="">
+          </div>
+        </div> -->
+          <button mat-button color="primary" (click)="goToRegister()">Register</button>
+        </mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Submit</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

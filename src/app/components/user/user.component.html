@@ -1,0 +1,47 @@
+<cdk-accordion-item class="top-list">
+
+
+  <div class="col-md-12" *ngIf="userProfile">
+    <img [src]="userProfile.avatar" alt="">
+    <span class=" flex-direction-column">{{ userProfile.username }}</span>
+    <span>{{ userProfile.firstName }}</span> <br>
+    <span class=" flex-direction-column">{{ userProfile.email }}</span>
+  </div>
+  <div class="d-flex search-bar">
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Search for a user ..." type="text" [formControl]="searchBar">
+
+    </mat-form-field>
+    <mat-icon class="mat-18" color="primary" selected>search</mat-icon>
+
+
+  </div>
+
+  <mat-slide-toggle [(ngModel)]="newFriend">See friends !</mat-slide-toggle>
+
+
+</cdk-accordion-item>
+
+<section class="col-md-12">
+  <cdk-accordion class="example-accordion user-list">
+
+    <cdk-accordion-item *ngFor="let user of dataList" color="primary" #accordionItem="cdkAccordionItem"
+      class="example-accordion-item" role="button" tabindex="0">
+      <div *ngIf=" user.username == userProfile.username ? !userProfile : user">
+        <div *ngIf="newFriend">
+
+          <span class="content"  matBadgePosition="before"
+          matBadgeColor="primary" [matBadge]="user.online ? '&#8288;' : ''" matBadgeSize="small">
+          <img matListAvatar [src]="user.avatar" alt="..." ></span>
+          <span> {{user.lastName}} </span>
+          <span class="demo-2">{{user.firstName}} </span>
+
+
+          <mat-icon class="mat-18" (click)="addFriends(user)" class="justify-content-end">person_add</mat-icon>
+          <mat-icon class="mat-18" (click)="onOpenModal(user)">add</mat-icon>
+        </div>
+      </div>
+    </cdk-accordion-item>
+  </cdk-accordion>
+
+</section>

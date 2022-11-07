@@ -1,0 +1,66 @@
+<section *ngIf=" !currentUser">
+  <div class="select d-flex align-items-center">
+    <h2 class="d-flex justify-content-center align-items-center">Select a conversation or start a new chat</h2>
+    <mat-icon class="mat-18">chat</mat-icon>
+  </div>
+</section>
+
+
+
+<!-- ! si on a une relation parent/enfant on peut utiliser input/output(decorateur)
+  ! sinon si pas de liens on utilise un service -->
+<section class="chat-room col-md-12" *ngIf="messages && currentUser">
+  <app-chat-topbar [datas]="currentUser"></app-chat-topbar>
+
+
+  <!-- class bootsrap qui permet de mettre des borders mt- -->
+  <div class="chat-communication border-bottom border-top d-flex flex-column-reverse">
+
+
+    <div *ngIf="messages">
+
+      <!-- mat-chip sert de div, liste gloable mat-chip-list  -->
+      <mat-chip-list aria-label="Fish selection" class="">
+        <div *ngFor="let message of messages" class="d-flex  w-100">
+          <!-- class="d-flex flex-column w-100 h-100" -->
+            <!-- <ng-con class="align-self-start" *ngIf="message.value.userID.username == currentUser.username"> -->
+            <ng-container class="" *ngIf="message.userID.username == currentUser.username ; else templateUser">
+              <div >
+                <mat-hint> {{ message.userID.username }}</mat-hint>
+                <mat-chip color="primary" selected>
+
+                  {{ message.content}}
+                  {{ message.date }}
+                </mat-chip>
+              </div>
+            </ng-container>
+
+
+          <ng-template #templateUser class="">
+
+            <div style="justify-content: end;width: 100%;display: flex;align-content: center;">
+              <mat-chip color="accent" selected>
+                {{ message.content }}
+                <!-- <mat-hint> {{ message.content }}</mat-hint> -->
+              </mat-chip>
+            </div>
+          </ng-template>
+
+
+        </div>
+      </mat-chip-list>
+
+    </div>
+  </div>
+
+  <mat-form-field appearance="fill" class="w-100">
+    <input type="text" matInput [formControl]="messageCtrl">
+    <mat-icon matSuffix (click)="onSubmit()">send</mat-icon>
+
+  </mat-form-field>
+</section>
+
+
+<!-- ng container et ng template 2 balises -->
+<!-- ng template si condition est true: ng template apparait sinon n'apparait pas  -->
+<!-- <ng-template #template></ng-template> -->

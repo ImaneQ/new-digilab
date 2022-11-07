@@ -1,0 +1,43 @@
+<!-- <span>Are you sure to discuss with:</span>
+<section class="user">
+  <span>{{ dataUser.first_name }}</span>
+  <span>{{ dataUser.last_name }}</span> -->
+<!-- property binding pour src, augmenter le référencement mettre avatar ds alt -->
+<!-- <img [src]="dataUser.avatar" alt="picture-avatar">
+</section>
+<button mat-button color="primary" (click)="onCancel()">No</button>
+<button mat-button color="primary" (click)="onClick()">Yes</button> -->
+
+
+<!-- !Model: simple classe qui va pemrettre de typer ou -->
+<!--! d'instacier de nvx objets avec cette class -->
+<!--** on génère via: ng g class models/user -->
+<!-- ! DEFINITION: inférence lorsqu'on initialise ou delcare
+  ! attribut TypescriptS reconnait automatiquement le type en fonction de l'initialisation de cet attribut -->
+<!-- ! ,(ex: si string reste tjs string) -->
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <span>Are you sure to discuss with:</span>
+
+
+  </mat-card-content>
+  <mat-card-title>
+    <section class="user d-flex align-items-center">
+      <mat-card>
+        <img [src]="dataUser.avatar" alt="picture-avatar">
+        <span>{{ dataUser.first_name }}</span>
+        <span>{{ dataUser.last_name }}</span>
+        <!-- property binding pour src, augmenter le référencement mettre avatar ds alt -->
+      </mat-card>
+    </section>
+  </mat-card-title>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="onCancel()">No</button>
+    <button mat-button color="primary" (click)="onClick()">Yes</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

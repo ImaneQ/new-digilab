@@ -1,0 +1,22 @@
+<p>user-logged works!</p>
+<h1 matDialogTitle>Title</h1>
+
+<mat-dialog-content>
+    Dialog <mat-card>
+      <img class="rounded-circle"  [src]="dataUser.avatar" alt="picture-avatar">
+      <!-- property binding pour src, augmenter le référencement mettre avatar ds alt -->
+      <p>First name: {{ dataUser.firstName }}</p>
+      <p>Last name: {{ dataUser.lastName }}</p>
+      <p>Email: {{ dataUser.email }}</p>
+      <p>dataUsername: {{ dataUser.username }}</p>
+      <p>ZipCode: {{ dataUser.zipCode }}</p>
+      <p>Street: {{ dataUser.street }}</p>
+      <p>City: {{ dataUser.city }}</p>
+      <p>Country: {{ dataUser.country }}</p>
+    </mat-card>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button matDialogClose (click)="onClick()">Ok</button>
+
+</mat-dialog-actions>

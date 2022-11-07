@@ -1,0 +1,25 @@
+.user img {
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  align-items: center;
+}
+.example-card{
+height: 45vh;
+width: 25vw;
+display: flex;
+flex-direction: column;
+}
+
+mat-card-title{
+  height: 20vh;
+}
+span{
+ margin-right: 0.5em;
+ font-size: 20px;
+
+}
+mat-card-actions{
+  display: flex;
+  justify-content: space-around;
+}

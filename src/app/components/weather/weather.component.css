@@ -1,0 +1,25 @@
+.myComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1vw;
+  height: 30vh;
+}
+
+p {
+  font-size: 0.8vw;
+}
+
+button {
+  display: flex;
+  align-items: center;
+}
+
+.buttonmeteo {
+  height: 100vh;
+}
+
+mat-card {
+  height: 30vh;
+  display: flex;
+}
