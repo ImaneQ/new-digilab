@@ -1,3 +1,7 @@
+Hello ! Have a look to my new angular project with french coms.
+I'ts an app on which we can chat with others and do many things. 
+
+
 # NewDigilab
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
