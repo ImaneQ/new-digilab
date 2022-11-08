@@ -12,6 +12,7 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { RegisterComponent } from './component/register/register.component';
 import { UserComponent } from './components/user/user.component';
+import { UserResolver } from './components/resolvers/users.resolver';
 
 // on met dans tableau routes les chemins,
 
@@ -34,7 +35,11 @@ const routes: Routes = [
       {
         path: 'chat', component: ChatComponent,
         children:
-          [{ path: 'user', component: UserComponent },
+          [{
+            path: 'user', component: UserComponent, resolve: {
+              profile: UserResolver
+            }
+          },
           {
             path: 'chat-room', component: ChatRoomComponent,
             children:

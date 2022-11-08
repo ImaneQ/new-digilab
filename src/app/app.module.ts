@@ -53,6 +53,7 @@ import { TokenInterceptorProvider } from './helpers/token.interceptor';
 import { UserComponent } from './components/user/user.component';
 import { UserLoggedComponent } from './modals/user-logged/user-logged.component';
 import { UserModalComponent } from './modals/user-modal/user-modal.component';
+import { UserResolver } from './components/resolvers/users.resolver';
 import { WeatherComponent } from './components/weather/weather.component';
 import { WeatherModalComponent } from './modals/weather-modal/weather-modal.component';
 import { environment } from './../environments/environment.prod';
@@ -120,7 +121,7 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
 
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} },
-  { provide: MatDialogRef, useValue: {} }, TokenInterceptorProvider],
+  { provide: MatDialogRef, useValue: {} }, TokenInterceptorProvider,UserResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

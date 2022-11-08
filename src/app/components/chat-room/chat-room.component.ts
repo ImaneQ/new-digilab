@@ -20,6 +20,8 @@ export class ChatRoomComponent implements OnInit {
   messages: any[] = [];
   date = new Date();
   chat = new Chatmessage();
+  userForList!: any;
+
   constructor(private _userService: UserService,
     private _dataService: DataService,
     private _chatService: ChatService,
@@ -29,14 +31,12 @@ export class ChatRoomComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+
     this._userService.getCurrentUser().subscribe((user: any) => {
       console.log(user);
       this.currentUser = user
 
-      // this._dataService.getJokes().subscribe((responseOfJokes: any) => {
-      //   this.jokes = responseOfJokes;
-
-      // })
       this._chatService.getAllMessage(this.currentUser.username)
         .pipe(map((objectReceived: any) => this.chat =
           objectReceived))
@@ -59,7 +59,6 @@ export class ChatRoomComponent implements OnInit {
       console.warn('getMessagesToSend', msg);
       // content/from
       this.messages.push(msg)
-
       if (this.currentUser.username !== msg.userID.username) {
         this._snackBar.open('Message from:' + msg.userID.username, '', { verticalPosition: 'top' })
       }
@@ -75,7 +74,16 @@ export class ChatRoomComponent implements OnInit {
 
 
 
+    this._chatService.receivedMessagesMethod().subscribe((messages: any) => {
+      this.userForList.forEach((user: any) => {
+        if (user.username == messages.userID.username) {
+          user.nbMsg = user.nbMsg + 1
+        }
+      });
+    })
+
   }
+
 
   onSubmit() {
     // on submit pour envoyer les msg et un argument attendu=> notre user
@@ -88,6 +96,5 @@ export class ChatRoomComponent implements OnInit {
 
 
 }
-
 
 

@@ -19,7 +19,7 @@
 
   <mat-slide-toggle [(ngModel)]="showMyFriends">See friends !</mat-slide-toggle>
   <!-- (click)="onChangeState($event)" -->
-
+  <p>{{profileEnfant | json}}</p>
 </cdk-accordion-item>
 
 <section class="col-md-12">
@@ -62,7 +62,7 @@
 
         <mat-icon class="mat-18" (click)="addFriends(user)" class="justify-content-end">person_add</mat-icon>
         <mat-icon class="mat-18" (click)="onOpenModal(user)">chat</mat-icon>
-        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium"></span>
+        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium" matBadgePosition="before"></span>
 
       </cdk-accordion-item>
     </div>

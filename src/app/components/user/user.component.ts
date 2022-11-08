@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {
@@ -8,11 +8,13 @@ import {
   take
 } from 'rxjs/operators';
 
+import { ActivatedRoute } from '@angular/router';
 import { AddFriendComponent } from 'src/app/modal/add-friend/add-friend.component';
 import { BackendService } from './../../service/backend.service';
 import { ChatService } from 'src/app/service/chat.service';
 import { MatBadgeModule } from '@angular/material/badge';
 import { Socket } from 'ngx-socket-io';
+import { User } from 'src/app/models/user';
 import { UserModalComponent } from './../../modals/user-modal/user-modal.component';
 import { UserService } from 'src/app/service/user.service';
 
@@ -29,18 +31,21 @@ export class UserComponent implements OnInit {
   filterFriend!: any[];
   allUsers!: any[];
   dataList: any = [];
-  userForList!: any;
   userProfile!: any;
   newFriend!: any[];
   showMyFriends = false;
   matBadge!: true;
+  profile!: User;
+  @Input() profileEnfant!: User;
+  @Output() profileEmitter = new EventEmitter<User>();
   // attribut qu'on déclaré de type
   constructor(private _userService: UserService,
     private _backendService: BackendService,
     public dialog: MatDialog,
     private _socket: Socket,
     private _matDialog: MatDialog,
-    private _chatService: ChatService
+    private _chatService: ChatService,
+    private _activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -107,17 +112,19 @@ export class UserComponent implements OnInit {
       this.dataList = this.dataList.sort((a: any, b: any) => b.online - a.online)
 
     })
-
-    this._chatService.receivedMessagesMethod().subscribe((messages: any) => {
-      this.userForList.forEach((user: any) => {
-        if (user.username == messages.userID.username) {
-          user.nbMsg = user.nbMsg + 1
-        }
-      });
+    // data propriété de activatedroute, on souscris à activatedRoute
+    this._activatedRoute.data.subscribe((dataReceivedFromResolver: any) => {
+      this.profile = dataReceivedFromResolver.profile
     })
+
+    this.display()
+
   }
 
 
+  display(): void {
+    this.profileEmitter.emit(this.profile)
+  }
 
 
 
@@ -175,9 +182,4 @@ export class UserComponent implements OnInit {
 
   }
 
-  // onChangeState(event: any): void {
-  //   if () {
-
-  //   }
-  // }
 }

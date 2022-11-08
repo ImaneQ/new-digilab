@@ -95,4 +95,5 @@ export class ChatService {
   userInsideUsers(usersLogged: any) {
     this.userSub.next(usersLogged)
   }
+
 }
