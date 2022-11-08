@@ -17,31 +17,55 @@
 
   </div>
 
-  <mat-slide-toggle [(ngModel)]="newFriend">See friends !</mat-slide-toggle>
-
+  <mat-slide-toggle [(ngModel)]="showMyFriends">See friends !</mat-slide-toggle>
+  <!-- (click)="onChangeState($event)" -->
 
 </cdk-accordion-item>
 
 <section class="col-md-12">
   <cdk-accordion class="example-accordion user-list">
-
-    <cdk-accordion-item *ngFor="let user of dataList" color="primary" #accordionItem="cdkAccordionItem"
-      class="example-accordion-item" role="button" tabindex="0">
-      <div *ngIf=" user.username == userProfile.username ? !userProfile : user">
-        <div *ngIf="newFriend">
-
-          <span class="content"  matBadgePosition="before"
-          matBadgeColor="primary" [matBadge]="user.online ? '&#8288;' : ''" matBadgeSize="small">
-          <img matListAvatar [src]="user.avatar" alt="..." ></span>
-          <span> {{user.lastName}} </span>
-          <span class="demo-2">{{user.firstName}} </span>
+    <div *ngIf="!showMyFriends">
+      <cdk-accordion-item *ngFor="let user of dataList" color="primary" #accordionItem="cdkAccordionItem"
+        class="example-accordion-item" role="button" tabindex="0">
 
 
-          <mat-icon class="mat-18" (click)="addFriends(user)" class="justify-content-end">person_add</mat-icon>
-          <mat-icon class="mat-18" (click)="onOpenModal(user)">add</mat-icon>
-        </div>
-      </div>
-    </cdk-accordion-item>
+        <span class="content" matBadgePosition="before" matBadgeColor="primary"
+          [matBadge]="user.online ? '&#8288;' : ''" matBadgeSize="small">
+          <img matListAvatar [src]="user.avatar" alt="..."></span>
+        <span> {{user.lastName}} </span>
+        <span class="demo-2">{{user.firstName}} </span>
+
+
+        <mat-icon class="mat-18" (click)="addFriends(user)" class="justify-content-end">person_add</mat-icon>
+        <mat-icon class="mat-18" (click)="onOpenModal(user)">chat</mat-icon>
+        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium"></span>
+
+      </cdk-accordion-item>
+    </div>
+  </cdk-accordion>
+
+</section>
+
+<section class="col-md-12">
+  <cdk-accordion class="example-accordion user-list">
+    <div *ngIf="showMyFriends">
+      <cdk-accordion-item *ngFor="let user of newFriend" color="primary" #accordionItem="cdkAccordionItem"
+        class="example-accordion-item" role="button" tabindex="0">
+
+
+        <span class="content" matBadgePosition="before" matBadgeColor="primary"
+          [matBadge]="user.online ? '&#8288;' : ''" matBadgeSize="small">
+          <img matListAvatar [src]="user.avatar" alt="..."></span>
+        <span> {{user.lastName}} </span>
+        <span class="demo-2">{{user.firstName}} </span>
+
+
+        <mat-icon class="mat-18" (click)="addFriends(user)" class="justify-content-end">person_add</mat-icon>
+        <mat-icon class="mat-18" (click)="onOpenModal(user)">chat</mat-icon>
+        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium"></span>
+
+      </cdk-accordion-item>
+    </div>
   </cdk-accordion>
 
 </section>

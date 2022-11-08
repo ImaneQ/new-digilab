@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
 export class BackendService {
   private apiUrl = `${environment.API_URL}/api/users`;
   urlAdd = environment.API_URL + "/api/users/addfriend"
+  urlShowFriends = environment.API_URL + "/api/users/friends"
+
   urlDB = "http://localhost:3000/api/users"
   dataUser!: any;
   urlPostMsg = environment.API_URL + "/api/messages/addfriendmessage"
@@ -75,7 +77,7 @@ export class BackendService {
   }
 
   getFriendList(): Observable<any> {
-    return this._http.get(`${this.urlAdd}`, {})
+    return this._http.get(`${this.urlShowFriends}`)
 
   }
 

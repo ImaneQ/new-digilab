@@ -26,6 +26,8 @@ export class ChatRoomComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private _socket: ChatService) { }
 
+
+
   ngOnInit(): void {
     this._userService.getCurrentUser().subscribe((user: any) => {
       console.log(user);

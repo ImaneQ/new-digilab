@@ -26,10 +26,13 @@ export class UserComponent implements OnInit {
   isChecked = true;
   // on initiliase searchbar de type formControl
   searchBar: FormControl = new FormControl();
+  filterFriend!: any[];
+  allUsers!: any[];
   dataList: any = [];
   userForList!: any;
   userProfile!: any;
   newFriend!: any[];
+  showMyFriends = false;
   matBadge!: true;
   // attribut qu'on déclaré de type
   constructor(private _userService: UserService,
@@ -45,7 +48,25 @@ export class UserComponent implements OnInit {
 
     this._backendService.getProfileApi().subscribe((response: any) => {
       this.userProfile = response.body
-      console.warn('userProfile', this.userProfile);
+      this._backendService.getUsersList().subscribe((val: any) => {
+        console.warn(val);
+        this.dataList = val.body
+        this.allUsers = val.body
+
+        this.dataList = this.dataList.filter((userItem: any) => this.userProfile.username !== userItem.username)
+        this.allUsers = this.allUsers.filter((userItem: any) => this.userProfile.username !== userItem.username)
+
+      })
+
+    })
+
+    this._backendService.getFriendList().subscribe((val: any) => {
+      this.newFriend = val
+      this.filterFriend = val
+
+      this.newFriend = this.newFriend.filter((userItem: any) => this.userProfile.username !== userItem.username)
+      this.filterFriend = this.filterFriend.filter((userItem: any) => this.userProfile.username !== userItem.username)
+
     })
 
 
@@ -54,19 +75,15 @@ export class UserComponent implements OnInit {
     this.searchBar.valueChanges.pipe((startWith('')),
     ).subscribe((userSearched: any) => {
       // on affecte un tableau à dataList
-      this.dataList = this.dataList.filter((elem: any) => elem.first_name.toLowerCase().includes(userSearched)
+      this.dataList = this.allUsers.filter((elem: any) => elem.firstName.toLowerCase().includes(userSearched)
+      )
+      this.newFriend = this.filterFriend.filter((elem: any) => elem.firstName.toLowerCase().includes(userSearched)
       )
       console.log(this.dataList);
 
     })
 
 
-    this._backendService.getUsersList().subscribe((val: any) => {
-      console.warn(val);
-      this.dataList = val.body
-
-
-    })
 
     // on ne subscribe pas car ne retourne rien
     this._chatService.userConnected()
@@ -81,10 +98,22 @@ export class UserComponent implements OnInit {
           ami.online = true
           console.warn('ami connecté', ami);
 
+        } else {
+          ami.online = false
+
         }
       }
       )
-      this.dataList.sort((a:any, b:any) => a.users.online > b.users ? 1 : -1)
+      this.dataList = this.dataList.sort((a: any, b: any) => b.online - a.online)
+
+    })
+
+    this._chatService.receivedMessagesMethod().subscribe((messages: any) => {
+      this.userForList.forEach((user: any) => {
+        if (user.username == messages.userID.username) {
+          user.nbMsg = user.nbMsg + 1
+        }
+      });
     })
   }
 
@@ -120,7 +149,7 @@ export class UserComponent implements OnInit {
 
   addFriends(user: any) {
     this._backendService.addFriend(user).subscribe((friend: any) => {
-      friend = this.newFriend
+      this.newFriend = friend
 
       if (friend) {
         this.newFriend.push(user)
@@ -146,5 +175,9 @@ export class UserComponent implements OnInit {
 
   }
 
+  // onChangeState(event: any): void {
+  //   if () {
 
+  //   }
+  // }
 }

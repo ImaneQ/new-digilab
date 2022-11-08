@@ -89,3 +89,11 @@ mat-form-field{
 .mat-badge-content{
   background: green;
 }
+
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: pink;
+  height: 24px;
+  width: 24px;
+  }
