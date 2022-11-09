@@ -11,6 +11,7 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { RegisterComponent } from './component/register/register.component';
 import { UserComponent } from './components/user/user.component';
 import { UserResolver } from './components/resolvers/users.resolver';
+import { WeatherComponent } from './components/weather/weather.component';
 
 // on met dans tableau routes les chemins,
 
@@ -23,34 +24,15 @@ const routes: Routes = [
   { path: 'login', loadChildren:()=> import('./modules/login/login.module').then(m=> m.LoginModule) },
   // on supprime component: NomComponent car on va le rmettre ds login-routing-module ds routes
   {
-    path: 'overview', component: OverviewComponent,
+    path: 'overview', loadChildren:()=> import('./modules/overview/overview.module').then(m=> m.OverviewModule),
     canActivate: [AuthorizationGuard],
     //  si on veut rajouter déclarer un autre tableau de routes,
     // on declare un attribut children, path ds path
-    children:
-      [{ path: 'directory', component: DirectoryComponent }, {
-        path: 'finder', loadChildren:()=> import('./modules/finder/finder.module').then(m=> m.FinderModule)
-      },
-      {
-        path: 'chat', component: ChatComponent,
-        children:
-          [{
-            path: 'user', component: UserComponent, resolve: {
-              // propriété profile qu'on nomme comme on veut
 
-              profile: UserResolver
-            }
-          },
-          {
-            path: 'chat-room', component: ChatRoomComponent,
-            children:
-              [{ path: 'chat-topbar', component: ChatTopbarComponent }]
-          }
-          ]
-      }
+
+      },
+      {path: 'finder', loadChildren:()=> import('./modules/finder/finder.module').then(m=> m.FinderModule)}
       ]
-  }
-];
 
 //! a quoi servent ngModule()
 //* -grouper des fonctionnalités en blocs

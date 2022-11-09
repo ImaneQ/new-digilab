@@ -28,6 +28,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatDividerModule} from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -39,7 +40,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ModalComponent } from './modals/modal/modal.component';
 import { NavbarComponent } from './components/overview/navbar/navbar.component';
-import { OverviewComponent } from './components/overview/overview.component';
 import { PipesPipe } from 'src/app/pipe/pipes.pipe';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -69,7 +69,6 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     DirectoryComponent,
     WeatherComponent,
     WeatherModalComponent,
-    OverviewComponent,
     ChatComponent,
     ProfilComponent,
     SideBarLeftComponent,
@@ -79,7 +78,8 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     ChatTopbarComponent,
     FinderModalComponent,
     UserLoggedComponent,
-    AddFriendComponent
+    AddFriendComponent,
+
 
   ],
   imports: [

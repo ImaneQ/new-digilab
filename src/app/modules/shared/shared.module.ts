@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // ng g module modules/shared
@@ -23,7 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   exports: [
     CommonModule,
@@ -37,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatIconModule,
     MatFormFieldModule,
-
+    MatSidenavModule,
+    MatToolbarModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
