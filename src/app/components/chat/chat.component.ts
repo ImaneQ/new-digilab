@@ -13,7 +13,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  profileParent!: any;
+  profileParent!: User;
   constructor(private _dialog: MatDialog) { }
 
   ngOnInit(): void {

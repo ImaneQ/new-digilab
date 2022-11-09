@@ -37,6 +37,8 @@ const routes: Routes = [
         children:
           [{
             path: 'user', component: UserComponent, resolve: {
+              // propriété profile qu'on nomme comme on veut
+
               profile: UserResolver
             }
           },
@@ -50,6 +52,13 @@ const routes: Routes = [
       ]
   }
 ];
+
+//! a quoi servent ngModule()
+//* -grouper des fonctionnalités en blocs
+//* -préparer l'environnement pour les templates
+//* -organiser les parties de l'application
+//* -connecter app avec librairires externes
+//* rassembler les composants et les re-exporter pour d'autres modules
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

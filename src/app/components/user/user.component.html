@@ -19,7 +19,9 @@
 
   <mat-slide-toggle [(ngModel)]="showMyFriends">See friends !</mat-slide-toggle>
   <!-- (click)="onChangeState($event)" -->
-  <p>{{profileEnfant | json}}</p>
+
+  <p>{{ profileEnfant | json }}pipe</p>
+
 </cdk-accordion-item>
 
 <section class="col-md-12">

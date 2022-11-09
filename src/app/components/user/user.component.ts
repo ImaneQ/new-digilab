@@ -113,6 +113,7 @@ export class UserComponent implements OnInit {
 
     })
     // data propriété de activatedroute, on souscris à activatedRoute
+    //! on peut récupérer PROFILE ds resolver et y souscrire (ds app routing ds path resolve: {profile: UserResolver}, {nomDelaClé}
     this._activatedRoute.data.subscribe((dataReceivedFromResolver: any) => {
       this.profile = dataReceivedFromResolver.profile
     })
@@ -124,6 +125,8 @@ export class UserComponent implements OnInit {
 
   display(): void {
     this.profileEmitter.emit(this.profile)
+    console.log(this.profileEmitter.emit(this.profile));
+
   }
 
 
