@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { BackendService } from './../../service/backend.service';
 import { DataService } from '../../service/data.service';
@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserLoggedComponent } from '../../modals/user-logged/user-logged.component';
-import { UserModalComponent } from '../../modals/user-modal/user-modal.component';
 import { UserService } from '../../service/user.service';
 
 @Component({

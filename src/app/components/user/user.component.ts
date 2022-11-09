@@ -120,6 +120,13 @@ export class UserComponent implements OnInit {
 
     this.display()
 
+    // this._chatService.receivedMessagesMethod().subscribe((messages: any) => {
+    //   this.userForList.forEach((user: any) => {
+    //     if (user.username == messages.userID.username) {
+    //       user.nbMsg = user.nbMsg + 1
+    //     }
+    //   });
+    // })
   }
 
 

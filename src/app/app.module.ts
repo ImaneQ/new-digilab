@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import {
   FormArray,
   FormGroup,
@@ -24,7 +24,6 @@ import { DirectoryComponent } from 'src/app/components/directory/directory.compo
 import { FinderComponent } from './components/finder/finder.component';
 import { FinderModalComponent } from './modals/finder-modal/finder-modal.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './component/login/login.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -45,7 +44,7 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { PipesPipe } from 'src/app/pipe/pipes.pipe';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './component/register/register.component';
+import { SharedModule } from './modules/shared/shared.module';
 import { SideBarLeftComponent } from './components/overview/overview/side-bar-left/side-bar-left.component';
 import { SideBarRightComponent } from './components/overview/side-bar-right/side-bar-right.component';
 import { TextFieldModule } from '@angular/cdk/text-field';
@@ -64,8 +63,6 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
   declarations: [
     AppComponent,
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     UserComponent,
     PipesPipe,
     UserModalComponent,
@@ -117,8 +114,16 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     SocketIoModule,
     SocketIoModule.forRoot(config),
     MatSlideToggleModule,
-    MatBadgeModule
+    MatBadgeModule,
+    SharedModule
 
+  ],
+  exports:[
+    SharedModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} },
   { provide: MatDialogRef, useValue: {} }, TokenInterceptorProvider,UserResolver],

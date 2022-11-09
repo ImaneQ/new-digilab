@@ -6,7 +6,6 @@ import { BackendService } from '../../service/backend.service';
 import { DatasService } from '../../service/datas.service';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
-import { splitNsName } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -42,8 +41,8 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       // ! FormControl [property binding] ds le html + on déclare ici ds le TS en tant que FormControl
       // ! FormGroup =>  on utilise FormControlName="" ds le html, PAS de property bing
-      email: new FormControl(['', Validators.required]),
-      password: new FormControl(['', Validators.required])
+      email: (['', Validators.required]),
+      password: (['', Validators.required])
 
     })
   }

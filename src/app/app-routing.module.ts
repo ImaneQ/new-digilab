@@ -7,9 +7,7 @@ import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { ChatTopbarComponent } from './components/chat-topbar/chat-topbar.component';
 import { DirectoryComponent } from './components/directory/directory.component';
 import { FinderComponent } from './components/finder/finder.component';
-import { LoginComponent } from './component/login/login.component';
 import { OverviewComponent } from './components/overview/overview.component';
-import { ProfilComponent } from './components/profil/profil.component';
 import { RegisterComponent } from './component/register/register.component';
 import { UserComponent } from './components/user/user.component';
 import { UserResolver } from './components/resolvers/users.resolver';
@@ -19,10 +17,11 @@ import { UserResolver } from './components/resolvers/users.resolver';
 const routes: Routes = [
   //  si path 'vide' => homepage
   // on en fait un vide pour la première page d'attérissage
-  { path: '', component: LoginComponent },
+  // { path: '', component: LoginComponent },
   //  on met le chemin dans path:'chemin' puis le component qu'on veut atteindre dans component
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'register',  loadChildren:()=> import('./modules/register/register.module').then(m=> m.RegisterModule) },
+  { path: 'login', loadChildren:()=> import('./modules/login/login.module').then(m=> m.LoginModule) },
+  // on supprime component: NomComponent car on va le rmettre ds login-routing-module ds routes
   {
     path: 'overview', component: OverviewComponent,
     canActivate: [AuthorizationGuard],

@@ -40,7 +40,7 @@
 
         <mat-icon class="mat-18" (click)="addFriends(user)" class="justify-content-end">person_add</mat-icon>
         <mat-icon class="mat-18" (click)="onOpenModal(user)">chat</mat-icon>
-        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium"></span>
+        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium"  matBadgePosition="after"></span>
 
       </cdk-accordion-item>
     </div>
@@ -64,7 +64,7 @@
 
         <mat-icon class="mat-18" (click)="addFriends(user)" class="justify-content-end">person_add</mat-icon>
         <mat-icon class="mat-18" (click)="onOpenModal(user)">chat</mat-icon>
-        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium" matBadgePosition="before"></span>
+        <span [matBadge]="user.nbMsg" matBadgeColor="primary" matBadgeSize="medium" matBadgePosition="after"></span>
 
       </cdk-accordion-item>
     </div>
