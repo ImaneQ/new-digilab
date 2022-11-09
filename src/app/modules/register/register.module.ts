@@ -7,7 +7,6 @@ import { SharedModule } from './../shared/shared.module';
 @NgModule({
   declarations: [RegisterComponent],
   imports: [
-    CommonModule,
     RegisterRoutingModule,
     SharedModule
   ],

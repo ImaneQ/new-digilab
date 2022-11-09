@@ -44,7 +44,10 @@ const routes: Routes = [{
 export class OverviewRoutingModule { }
 
 
-//!transférer les components concernés de app.modules vers overview.module.ts ds declarations
+//!transférer les components concernés de app.modules vers overview.module.ts
+// ! ds declarations
 //! transférer les modules concernés de app.modules vers shared.module.ts
 //! dans les imports et les exports
 //! mettre modales components vers exports
+//! shared.module mettre modales ds declarations et exports
+// !ne pas toucher à socket

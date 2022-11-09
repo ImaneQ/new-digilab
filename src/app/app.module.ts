@@ -11,7 +11,6 @@ import { MatInput, MatInputModule } from '@angular/material/input';
 import { RouterModule, Routes } from '@angular/router';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
-import { AddFriendComponent } from './modal/add-friend/add-friend.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,14 +20,13 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { ChatTopbarComponent } from './components/chat-topbar/chat-topbar.component';
 import { DirectoryComponent } from 'src/app/components/directory/directory.component';
-import { FinderModalComponent } from './modals/finder-modal/finder-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -38,7 +36,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ModalComponent } from './modals/modal/modal.component';
 import { NavbarComponent } from './components/overview/navbar/navbar.component';
 import { PipesPipe } from 'src/app/pipe/pipes.pipe';
 import { ProfilComponent } from './components/profil/profil.component';
@@ -49,11 +46,8 @@ import { SideBarRightComponent } from './components/overview/side-bar-right/side
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { TokenInterceptorProvider } from './helpers/token.interceptor';
 import { UserComponent } from './components/user/user.component';
-import { UserLoggedComponent } from './modals/user-logged/user-logged.component';
-import { UserModalComponent } from './modals/user-modal/user-modal.component';
 import { UserResolver } from './components/resolvers/users.resolver';
 import { WeatherComponent } from './components/weather/weather.component';
-import { WeatherModalComponent } from './modals/weather-modal/weather-modal.component';
 import { environment } from './../environments/environment.prod';
 
 const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
@@ -64,11 +58,8 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     AppComponent,
     UserComponent,
     PipesPipe,
-    UserModalComponent,
-    ModalComponent,
     DirectoryComponent,
     WeatherComponent,
-    WeatherModalComponent,
     ChatComponent,
     ProfilComponent,
     SideBarLeftComponent,
@@ -76,9 +67,6 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     NavbarComponent,
     ChatRoomComponent,
     ChatTopbarComponent,
-    FinderModalComponent,
-    UserLoggedComponent,
-    AddFriendComponent,
 
 
   ],
@@ -116,7 +104,7 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     SharedModule
 
   ],
-  exports:[
+  exports: [
     SharedModule
   ],
   schemas: [
@@ -124,7 +112,7 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     NO_ERRORS_SCHEMA
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} },
-  { provide: MatDialogRef, useValue: {} }, TokenInterceptorProvider,UserResolver],
+  { provide: MatDialogRef, useValue: {} }, TokenInterceptorProvider, UserResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
