@@ -29,7 +29,7 @@ const routes: Routes = [
     // on declare un attribut children, path ds path
     children:
       [{ path: 'directory', component: DirectoryComponent }, {
-        path: 'finder', component: FinderComponent
+        path: 'finder', loadChildren:()=> import('./modules/finder/finder.module').then(m=> m.FinderModule)
       },
       {
         path: 'chat', component: ChatComponent,

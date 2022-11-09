@@ -21,7 +21,6 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { ChatTopbarComponent } from './components/chat-topbar/chat-topbar.component';
 import { DirectoryComponent } from 'src/app/components/directory/directory.component';
-import { FinderComponent } from './components/finder/finder.component';
 import { FinderModalComponent } from './modals/finder-modal/finder-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -78,7 +77,6 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
     NavbarComponent,
     ChatRoomComponent,
     ChatTopbarComponent,
-    FinderComponent,
     FinderModalComponent,
     UserLoggedComponent,
     AddFriendComponent

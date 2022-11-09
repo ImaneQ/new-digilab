@@ -23,8 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,
@@ -39,6 +38,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatFormFieldModule,
 
-  ]
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
 })
 export class SharedModule { }
