@@ -6,9 +6,12 @@ import { FinderModalComponent } from '../../modals/finder-modal/finder-modal.com
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ModalComponent } from './../../modals/modal/modal.component';
@@ -41,7 +44,12 @@ import { WeatherModalComponent } from './../../modals/weather-modal/weather-moda
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatProgressBarModule
+
+
   ],
   exports: [
     CommonModule,
@@ -61,11 +69,12 @@ import { WeatherModalComponent } from './../../modals/weather-modal/weather-moda
     UserModalComponent,
     WeatherModalComponent,
     UserLoggedComponent,
-    AddFriendComponent
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
-  ],
+    AddFriendComponent,
+    MatDialogModule,
+    MatDividerModule,
+    MatProgressBarModule
+
+
+  ]
 })
 export class SharedModule { }
