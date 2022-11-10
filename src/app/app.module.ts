@@ -41,13 +41,10 @@ import { PipesPipe } from 'src/app/pipe/pipes.pipe';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './modules/shared/shared.module';
-import { SideBarLeftComponent } from './components/overview/overview/side-bar-left/side-bar-left.component';
-import { SideBarRightComponent } from './components/overview/side-bar-right/side-bar-right.component';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { TokenInterceptorProvider } from './helpers/token.interceptor';
 import { UserComponent } from './components/user/user.component';
 import { UserResolver } from './components/resolvers/users.resolver';
-import { WeatherComponent } from './components/weather/weather.component';
 import { environment } from './../environments/environment.prod';
 
 const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
@@ -56,18 +53,8 @@ const config: SocketIoConfig = { url: `${environment.API_URL}`, options: {} };
   declarations: [
     AppComponent,
     AppComponent,
-    UserComponent,
     PipesPipe,
-    DirectoryComponent,
-    WeatherComponent,
-    ChatComponent,
-    ProfilComponent,
-    SideBarLeftComponent,
-    SideBarRightComponent,
-    NavbarComponent,
-    ChatRoomComponent,
-    ChatTopbarComponent,
-
+    ProfilComponent
 
   ],
   imports: [

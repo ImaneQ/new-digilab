@@ -17,7 +17,7 @@
 
   </div>
 
-  <mat-slide-toggle [(ngModel)]="showMyFriends">See friends !</mat-slide-toggle>
+  <mat-slide-toggle (toggleChange)="onChangeState()">See friends !</mat-slide-toggle>
   <!-- (click)="onChangeState($event)" -->
 
   <p>{{ profileEnfant | json }}pipe</p>

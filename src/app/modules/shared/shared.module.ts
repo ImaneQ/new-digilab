@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 
 import { AddFriendComponent } from '../../modal/add-friend/add-friend.component';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
 import { FinderModalComponent } from '../../modals/finder-modal/finder-modal.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -13,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ModalComponent } from './../../modals/modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -47,7 +49,10 @@ import { WeatherModalComponent } from './../../modals/weather-modal/weather-moda
     MatToolbarModule,
     MatDialogModule,
     MatDividerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSlideToggleModule,
+    CdkAccordionModule
+
 
 
   ],
@@ -72,7 +77,12 @@ import { WeatherModalComponent } from './../../modals/weather-modal/weather-moda
     AddFriendComponent,
     MatDialogModule,
     MatDividerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule,
+    MatSlideToggleModule,
+    CdkAccordionModule
+
+
 
 
   ]

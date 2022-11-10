@@ -25,6 +25,7 @@ UserService
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
   isChecked = true;
   // on initiliase searchbar de type formControl
   searchBar: FormControl = new FormControl();
@@ -79,12 +80,13 @@ export class UserComponent implements OnInit {
     //! valueChanges: reagit a chaque fois que je tape qqch
     this.searchBar.valueChanges.pipe((startWith('')),
     ).subscribe((userSearched: any) => {
+
+      console.warn('je ne cherche pas dans mes amis ! JE CHERCHE DANS LES DEUX TABLEAUX !!!!!');
       // on affecte un tableau à dataList
       this.dataList = this.allUsers.filter((elem: any) => elem.firstName.toLowerCase().includes(userSearched)
       )
       this.newFriend = this.filterFriend.filter((elem: any) => elem.firstName.toLowerCase().includes(userSearched)
       )
-      console.log(this.dataList);
 
     })
 
@@ -191,5 +193,10 @@ export class UserComponent implements OnInit {
     })
 
   }
+
+
+  onChangeState() {
+    this.showMyFriends = !this.showMyFriends
+    }
 
 }
