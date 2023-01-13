@@ -1,31 +1,29 @@
-Hello ! Have a look to my new angular project with french coms.
-I'ts an app on which we can chat with others and do many things. 
+# Hello ! 👋
 
+# Projet Digilab 
 
-# NewDigilab
+Voici un projet que j'ai réalisé dans le cadre de ma formation, dans le but d'apprendre le framework Angular avec notre formateur Angular. C'est un dashboard qui nous permet de communiquer avec les personnes connectées sur le même port à l'aide d'un chat. Il y a un espace de connexion avec un component qui nous permet de voir la météo en fonction du lieu que l'on souhaite. Concernant la partie back-end, je ne suis pas la contributrice donc j'ai choisis de ne pas déposer cette partie.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+## Démarrage rapide
 
-## Development server
+Ces instructions vont vous permettre d'obtenir une copie fonctionnelle du projet sur votre poste de travail.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Prérequis
 
-## Code scaffolding
+Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder installer les dépendances suivantes: Angular, Boostrap. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+### Angular
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Ouvrir une invite de commande.
+2. Taper `npm install -g @angular/cli`.
 
-## Running unit tests
+### Bootstrap
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Taper ` npm install @ng-bootstrap/ng-bootstrap`.
+2. Changer le fichier .angular-cli.json en ajoutant le style:"../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-## Running end-to-end tests
+## 🛠 Skills
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Angular, Bootstrap
